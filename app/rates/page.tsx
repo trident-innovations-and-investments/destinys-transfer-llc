@@ -239,7 +239,7 @@ export default function Rates() {
             </h2>
             <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
               Contact us for shipping and transfer rates to destinations not listed or for
-              special requirements. We'll provide a personalized quote.
+              special requirements. We&apos;ll provide a personalized quote.
             </p>
             <Link
               href="/contact"
