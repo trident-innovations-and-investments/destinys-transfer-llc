@@ -1,6 +1,7 @@
 import Link from 'next/link';
-import { tlRates, serviceRates, rateTerms } from '@/data/rates';
-import RateTable from '@/components/RateTable';
+import { tlRates, ltlRates, serviceRates, rateTerms } from '@/data/rates';
+import TLRateTable from '@/components/TLRateTable';
+import LTLRateTable from '@/components/LTLRateTable';
 import CoverageMap from '@/components/CoverageMap';
 import { formatCurrency } from '@/lib/utils';
 
@@ -18,8 +19,7 @@ export default function Rates() {
             Locations & Rates
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Competitive shipping and transfer rates from {rateTerms.origin}. All rates
-            include liftgate and inside delivery transfer services.
+            Competitive shipping and transfer rates from {rateTerms.origin}.
           </p>
         </div>
       </section>
@@ -34,9 +34,12 @@ export default function Rates() {
             Transparent pricing based on distance, weight, and service type
           </p>
 
-          <div className="grid lg:grid-cols-2 gap-8 mb-8">
+          <div className="grid lg:grid-cols-3 gap-8 mb-8">
             {/* TL Rates */}
-            <RateTable rates={tlRates} origin={rateTerms.origin} />
+            <TLRateTable rates={tlRates} />
+
+            {/* LTL Rates */}
+            <LTLRateTable rates={ltlRates} />
 
             {/* Additional Service Rates */}
             <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
@@ -130,7 +133,11 @@ export default function Rates() {
                   </div>
                   <div className="text-sm text-blue-800">
                     <span className="font-medium">Additional stops:</span>{' '}
-                    {formatCurrency(rateTerms.additionalStopCharge)} per stop after 4 stops
+                    {formatCurrency(rateTerms.additionalStopCharge)} per stop after 5 stops
+                  </div>
+                  <div className="text-sm text-blue-800">
+                    <span className="font-medium">Liftgate & Inside Delivery:</span>{' '}
+                    {formatCurrency(rateTerms.liftgateInsideDeliveryCharge)} - {rateTerms.liftgateInsideDeliveryNote}
                   </div>
                 </div>
               </div>
