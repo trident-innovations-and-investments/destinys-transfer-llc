@@ -18,10 +18,16 @@ export function formatPhone(phone: string): string {
 /**
  * Formats currency for display
  * @param amount - Amount to format
- * @returns Formatted currency string
+ * @returns Formatted currency string, or '$0' if invalid
  */
 export function formatCurrency(amount: number | string): string {
   const num = typeof amount === 'string' ? parseFloat(amount) : amount;
+  
+  // Handle invalid numbers (NaN, Infinity, etc.)
+  if (!Number.isFinite(num) || num < 0) {
+    return '$0';
+  }
+  
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',

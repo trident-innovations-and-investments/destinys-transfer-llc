@@ -16,7 +16,7 @@ export interface LTLRate {
 }
 
 export interface ServiceRate {
-  type: 'short-haul' | 'hot-shot';
+  type: 'short-haul' | 'hot-shot' | 'trailer-spotting' | 'trailer-relocation' | 'trailer-delivery' | 'trailer-pickup';
   rate: number | string;
   description: string;
   includes: string[];
@@ -24,7 +24,7 @@ export interface ServiceRate {
 
 /**
  * Truckload (TL) rates from Orlando, FL
- * Rates include up to 4 stops, liftgate, and inside delivery up to 20 feet
+ * Rates include up to 4 stops, liftgate, and Inside delivery up to 20 feet. must be APPROVED by SHIPPER
  */
 export const tlRates: TLRate[] = [
   { destination: 'Jacksonville', tlRate: 800 },
@@ -63,9 +63,9 @@ export const serviceRates: ServiceRate[] = [
     rate: 500,
     description: 'Short Haul (50-mile radius)',
     includes: [
-      'Up to 4 stops',
-      'Liftgate service',
-      'Inside delivery up to 20 feet',
+      'Up to 5 stops',
+      'Liftgate service (additional charge)',
+      'Inside delivery up to 20 feet. must be APPROVED by SHIPPER (additional charge)',
     ],
   },
   {
@@ -74,8 +74,44 @@ export const serviceRates: ServiceRate[] = [
     description: 'Hot Shot Services (50-mile radius)',
     includes: [
       'Per pallet',
-      'Liftgate service',
-      'Inside delivery up to 20 feet',
+      'Liftgate service (additional charge)',
+      'Inside delivery up to 20 feet. must be APPROVED by SHIPPER (additional charge)',
+    ],
+  },
+  {
+    type: 'trailer-spotting',
+    rate: 'Call for quote',
+    description: 'Trailer Spotting',
+    includes: [
+      'Professional trailer positioning',
+      'Secure placement at designated location',
+    ],
+  },
+  {
+    type: 'trailer-relocation',
+    rate: 'Call for quote',
+    description: 'Trailer Relocation',
+    includes: [
+      'Move trailer between locations',
+      'Professional handling',
+    ],
+  },
+  {
+    type: 'trailer-delivery',
+    rate: 'Call for quote',
+    description: 'Trailer Delivery',
+    includes: [
+      'Delivery to specified location',
+      'Secure placement',
+    ],
+  },
+  {
+    type: 'trailer-pickup',
+    rate: 'Call for quote',
+    description: 'Trailer Pick Up',
+    includes: [
+      'Pickup from specified location',
+      'Professional handling',
     ],
   },
 ];

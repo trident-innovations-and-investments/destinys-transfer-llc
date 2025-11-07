@@ -1,6 +1,47 @@
+import type { Metadata } from 'next';
+import Image from 'next/image';
 import { companyInfo } from '@/data/company';
 import { formatPhone, formatAddress } from '@/lib/utils';
 import ContactForm from '@/components/ContactForm';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://destinystransfer.com';
+
+/**
+ * Contact page metadata for SEO
+ * Optimized for contact and location searches
+ */
+export const metadata: Metadata = {
+  title: 'Contact Us - Get a Shipping Quote | Orlando, FL',
+  description: `Contact ${companyInfo.name} for reliable shipping and cargo transfer services. ${companyInfo.experience} years of experience. Licensed and insured. Located in Orlando, FL. Phone: ${companyInfo.phone}. Get a custom quote today.`,
+  keywords: [
+    'contact shipping company Orlando',
+    'shipping quote Florida',
+    'freight services contact',
+    'trucking company Orlando',
+    'cargo transfer contact',
+    'shipping services phone number',
+  ],
+  openGraph: {
+    title: 'Contact Us - Get a Shipping Quote | Orlando, FL',
+    description: `Contact ${companyInfo.name} for reliable shipping and cargo transfer services. ${companyInfo.experience} years of experience.`,
+    url: `${siteUrl}/contact`,
+    images: [
+      {
+        url: `${siteUrl}/IMG_4255.jpeg`,
+        width: 1200,
+        height: 630,
+        alt: 'Contact Shipping Services',
+      },
+    ],
+  },
+  twitter: {
+    title: 'Contact Us - Get a Shipping Quote | Orlando, FL',
+    description: `Contact ${companyInfo.name} for reliable shipping and cargo transfer services. ${companyInfo.experience} years of experience.`,
+  },
+  alternates: {
+    canonical: `${siteUrl}/contact`,
+  },
+};
 
 /**
  * Contact page with company information and contact details
@@ -10,7 +51,7 @@ export default function Contact() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 md:pt-24 pb-8 md:pb-12">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900 mb-6">
             Contact Us
@@ -40,47 +81,55 @@ export default function Contact() {
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2">Equipment</h3>
                 <ul className="space-y-2">
-                  {companyInfo.equipment.map((item, index) => (
-                    <li key={index} className="flex items-start text-gray-600">
-                      <svg
-                        className="w-5 h-5 text-gray-900 mr-2 mt-0.5 flex-shrink-0"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span>{item}</span>
-                    </li>
-                  ))}
+                  {companyInfo.equipment && companyInfo.equipment.length > 0 ? (
+                    companyInfo.equipment.map((item, index) => (
+                      <li key={index} className="flex items-start text-gray-600">
+                        <svg
+                          className="w-5 h-5 text-gray-900 mr-2 mt-0.5 flex-shrink-0"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        <span>{item}</span>
+                      </li>
+                    ))
+                  ) : (
+                    <li className="text-gray-500 text-sm">No equipment listed</li>
+                  )}
                 </ul>
               </div>
               <div>
                 <h3 className="font-semibold text-gray-900 mb-2">Services</h3>
                 <ul className="space-y-2">
-                  {companyInfo.services.map((service, index) => (
-                    <li key={index} className="flex items-start text-gray-600">
-                      <svg
-                        className="w-5 h-5 text-gray-900 mr-2 mt-0.5 flex-shrink-0"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      <span>{service}</span>
-                    </li>
-                  ))}
+                  {companyInfo.services && companyInfo.services.length > 0 ? (
+                    companyInfo.services.map((service, index) => (
+                      <li key={index} className="flex items-start text-gray-600">
+                        <svg
+                          className="w-5 h-5 text-gray-900 mr-2 mt-0.5 flex-shrink-0"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        <span>{service}</span>
+                      </li>
+                    ))
+                  ) : (
+                    <li className="text-gray-500 text-sm">No services listed</li>
+                  )}
                 </ul>
               </div>
             </div>

@@ -12,13 +12,29 @@ import { companyInfo } from '@/data/company';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Get initials from company name
-  const initials = companyInfo.name
-    .split(' ')
-    .map((word) => word[0])
-    .join('')
-    .toUpperCase()
-    .slice(0, 2);
+  /**
+   * Safely extracts initials from company name
+   * Handles edge cases like empty strings or single words
+   */
+  const getInitials = (): string => {
+    if (!companyInfo.name || companyInfo.name.trim().length === 0) {
+      return 'DT';
+    }
+    const words = companyInfo.name.trim().split(/\s+/).filter(word => word.length > 0);
+    if (words.length === 0) {
+      return 'DT';
+    }
+    if (words.length === 1) {
+      return words[0].substring(0, 2).toUpperCase();
+    }
+    return words
+      .map((word) => word[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2);
+  };
+
+  const initials = getInitials();
 
   return (
     <header className="border-b border-gray-200">

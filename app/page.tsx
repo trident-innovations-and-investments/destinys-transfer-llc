@@ -1,8 +1,50 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import type { Metadata } from 'next';
 import { companyInfo, serviceDescriptions } from '@/data/company';
 import ServiceCard from '@/components/ServiceCard';
 import ContactForm from '@/components/ContactForm';
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://destinystransfer.com';
+
+/**
+ * Home page metadata for SEO
+ * Optimized for local search and entity-first SEO
+ */
+export const metadata: Metadata = {
+  title: 'Professional Shipping & Transfer Services in Orlando, FL',
+  description: `Reliable LTL & TL shipping services across Florida. ${companyInfo.experience} years of safe driving experience. Competitive rates, on-time delivery, and exceptional service. Licensed and insured. Serving Orlando, Tampa, Miami, Jacksonville, and more.`,
+  keywords: [
+    'shipping services Orlando',
+    'freight services Florida',
+    'LTL shipping Orlando',
+    'TL shipping Florida',
+    'trucking services Orlando',
+    'cargo transfer Florida',
+    'commercial shipping Orlando',
+    'logistics services Florida',
+  ],
+  openGraph: {
+    title: 'Professional Shipping & Transfer Services in Orlando, FL',
+    description: `Reliable LTL & TL shipping services across Florida. ${companyInfo.experience} years of safe driving experience. Competitive rates and on-time delivery.`,
+    url: siteUrl,
+    images: [
+      {
+        url: `${siteUrl}/IMG_4255.jpeg`,
+        width: 1200,
+        height: 630,
+        alt: 'Professional Shipping Services',
+      },
+    ],
+  },
+  twitter: {
+    title: 'Professional Shipping & Transfer Services in Orlando, FL',
+    description: `Reliable LTL & TL shipping services across Florida. ${companyInfo.experience} years of safe driving experience.`,
+  },
+  alternates: {
+    canonical: siteUrl,
+  },
+};
 
 /**
  * Home page with hero section, company overview, and service highlights
@@ -11,40 +53,77 @@ import ContactForm from '@/components/ContactForm';
 export default function Home() {
   return (
     <div>
-      {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900 mb-6">
-              Reliable LTL & TL Shipping Services
-            </h1>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              Professional freight solutions across major routes. Competitive rates, on-time delivery, and exceptional service for all your shipping needs. {companyInfo.experience} years of safe driving experience.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/contact"
-                className="px-6 py-3 bg-gray-900 text-white text-sm font-medium rounded-md hover:bg-gray-800 transition-colors text-center"
-              >
-                Request Quote
-              </Link>
-              <Link
-                href="/rates"
-                className="px-6 py-3 border border-gray-300 text-gray-900 text-sm font-medium rounded-md hover:bg-gray-50 transition-colors text-center"
-              >
-                View Rates
-              </Link>
+      {/* Hero Section with Premium Gradient Background */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48cGF0dGVybiBpZD0iZ3JpZCIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48cGF0aCBkPSJNIDQwIDAgTCAwIDAgMCA0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDAsIDAsIDAsIDAuMDMpIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center rounded-full bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 mb-6">
+                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                {companyInfo.experience}+ Years of Excellence
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6">
+                Reliable LTL & TL{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">
+                  Shipping Services
+                </span>
+              </h1>
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                Professional freight solutions across major routes. Competitive rates, on-time delivery, and exceptional service for all your shipping needs.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/contact"
+                  className="group relative inline-flex items-center justify-center px-8 py-3.5 bg-gray-900 text-white text-sm font-semibold rounded-lg hover:bg-gray-800 transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                >
+                  <span>Request Quote</span>
+                  <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+                <Link
+                  href="/rates"
+                  className="inline-flex items-center justify-center px-8 py-3.5 border-2 border-gray-900 text-gray-900 text-sm font-semibold rounded-lg hover:bg-gray-900 hover:text-white transition-all duration-200"
+                >
+                  View Rates
+                </Link>
+              </div>
+              
+              {/* Stats Bar */}
+              <div className="mt-12 pt-8 border-t border-gray-200">
+                <div className="grid grid-cols-3 gap-6">
+                  <div>
+                    <div className="text-3xl font-bold text-gray-900">{companyInfo.experience}+</div>
+                    <div className="text-sm text-gray-600 mt-1">Years Experience</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-gray-900">24/7</div>
+                    <div className="text-sm text-gray-600 mt-1">Support</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl font-bold text-gray-900">100%</div>
+                    <div className="text-sm text-gray-600 mt-1">Licensed & Insurance upon request</div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="rounded-lg overflow-hidden">
-            <Image
-              src="https://images.pexels.com/photos/1267325/pexels-photo-1267325.jpeg?_gl=1*18xlv3y*_ga*MTk3NTk2NTA0MS4xNzYyNDc3MDM5*_ga_8JE65Q40S6*czE3NjI0NzcwMzkkbzEkZzEkdDE3NjI0NzgyOTkkajQzJGwwJGgw"
-              alt="Truck on highway"
-              width={800}
-              height={600}
-              className="w-full h-full object-cover"
-              priority
-            />
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl opacity-10 blur-2xl"></div>
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-1 ring-gray-900/10">
+                <Image
+                  src="/main-hero-image.jpeg"
+                  alt="Professional freight truck on highway representing reliable shipping services"
+                  width={800}
+                  height={600}
+                  className="w-full h-full object-cover"
+                  priority
+                  loading="eager"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -75,10 +154,9 @@ export default function Home() {
         <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-4 text-center">
           Service Locations
         </h2>
-        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+        <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
           We provide comprehensive coverage across major shipping corridors and regional routes from Orlando, FL
         </p>
-
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           <div className="border border-gray-200 rounded-lg p-6 hover:border-gray-300 transition-colors">
             <div className="flex items-start mb-3">
@@ -210,7 +288,7 @@ export default function Home() {
 
       {/* Why Choose Us */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-12 text-center">
+        <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-8 text-center">
           Why Choose {companyInfo.name}
         </h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -253,7 +331,7 @@ export default function Home() {
             </div>
             <h3 className="font-semibold text-gray-900 mb-2">Fully Insured</h3>
             <p className="text-sm text-gray-600 leading-relaxed">
-              Comprehensive cargo insurance for peace of mind
+              Comprehensive cargo insurance for peace of mind upon request
             </p>
           </div>
           <div className="text-center">
@@ -301,89 +379,107 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="bg-gray-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      {/* Contact Section with Premium Gradient */}
+      <section id="contact" className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white">
+        {/* Decorative Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-semibold tracking-tight mb-4">
+              <div className="inline-flex items-center rounded-full bg-blue-500/10 px-4 py-1.5 text-sm font-medium text-blue-300 ring-1 ring-inset ring-blue-500/20 mb-6">
+                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                Fast Response
+              </div>
+              <h2 className="text-4xl font-bold tracking-tight mb-4">
                 Get a Quote Today
               </h2>
-              <p className="text-gray-400 mb-8 leading-relaxed">
+              <p className="text-gray-300 mb-8 leading-relaxed text-lg">
                 Contact us for a customized shipping solution that meets your specific needs and budget.
               </p>
               <div className="space-y-4">
-                <div className="flex items-start">
-                  <svg
-                    className="w-5 h-5 text-gray-400 mr-3 mt-0.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    />
-                  </svg>
+                <div className="flex items-start group">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mr-4 group-hover:bg-blue-500/20 transition-colors">
+                    <svg
+                      className="w-5 h-5 text-blue-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                      />
+                    </svg>
+                  </div>
                   <div>
-                    <div className="font-medium">Phone</div>
+                    <div className="font-semibold text-white">Phone</div>
                     <a
                       href={`tel:${companyInfo.phone}`}
-                      className="text-gray-400 text-sm hover:text-white transition-colors"
+                      className="text-gray-300 text-sm hover:text-blue-400 transition-colors"
                     >
                       {companyInfo.phone}
                     </a>
                   </div>
                 </div>
-                <div className="flex items-start">
-                  <svg
-                    className="w-5 h-5 text-gray-400 mr-3 mt-0.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    />
-                  </svg>
+                <div className="flex items-start group">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mr-4 group-hover:bg-blue-500/20 transition-colors">
+                    <svg
+                      className="w-5 h-5 text-blue-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
+                    </svg>
+                  </div>
                   <div>
-                    <div className="font-medium">Email</div>
+                    <div className="font-semibold text-white">Email</div>
                     <a
                       href={`mailto:${companyInfo.email}`}
-                      className="text-gray-400 text-sm hover:text-white transition-colors break-all"
+                      className="text-gray-300 text-sm hover:text-blue-400 transition-colors break-all"
                     >
                       {companyInfo.email}
                     </a>
                   </div>
                 </div>
-                <div className="flex items-start">
-                  <svg
-                    className="w-5 h-5 text-gray-400 mr-3 mt-0.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
+                <div className="flex items-start group">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mr-4 group-hover:bg-blue-500/20 transition-colors">
+                    <svg
+                      className="w-5 h-5 text-blue-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                  </div>
                   <div>
-                    <div className="font-medium">Office</div>
-                    <div className="text-gray-400 text-sm">
+                    <div className="font-semibold text-white">Office</div>
+                    <div className="text-gray-300 text-sm">
                       {companyInfo.address.street}<br />
                       {companyInfo.address.city}, {companyInfo.address.state} {companyInfo.address.zip}
                     </div>

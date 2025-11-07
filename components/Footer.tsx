@@ -7,12 +7,29 @@ import { formatPhone, formatAddress } from '@/lib/utils';
  * Styled to match template.html design
  */
 export default function Footer() {
-  const initials = companyInfo.name
-    .split(' ')
-    .map((word) => word[0])
-    .join('')
-    .toUpperCase()
-    .slice(0, 2);
+  /**
+   * Safely extracts initials from company name
+   * Handles edge cases like empty strings or single words
+   */
+  const getInitials = (): string => {
+    if (!companyInfo.name || companyInfo.name.trim().length === 0) {
+      return 'DT';
+    }
+    const words = companyInfo.name.trim().split(/\s+/).filter(word => word.length > 0);
+    if (words.length === 0) {
+      return 'DT';
+    }
+    if (words.length === 1) {
+      return words[0].substring(0, 2).toUpperCase();
+    }
+    return words
+      .map((word) => word[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2);
+  };
+
+  const initials = getInitials();
 
   return (
     <footer className="border-t border-gray-200 bg-white">
@@ -85,7 +102,7 @@ export default function Footer() {
                 {formatAddress(companyInfo.address)}
               </li>
               <li className="pt-2">
-                <span className="font-medium">Licensed & Insured</span>
+                <span className="font-medium">Licensed & Insurance upon request</span>
               </li>
             </ul>
           </div>
