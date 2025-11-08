@@ -1,5 +1,8 @@
 import { MetadataRoute } from 'next';
 
+// Ensures the route is statically generated for export builds
+export const dynamic = 'force-static';
+
 /**
  * Robots.txt generation for SEO
  * Controls search engine crawling behavior
