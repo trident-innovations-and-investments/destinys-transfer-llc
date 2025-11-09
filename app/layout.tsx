@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     description: `${companyInfo.name} provides professional shipping and cargo transfer services. ${companyInfo.experience} years of safe driving experience. Serving Florida with reliable shipping and transfer services.`,
     images: [
       {
-        url: `${siteUrl}/IMG_4255.jpeg`,
+        url: `${siteUrl}/main-hero-image.jpeg`,
         width: 1200,
         height: 630,
         alt: `${companyInfo.name} - Professional Shipping Services`,
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${companyInfo.name} - Professional Shipping & Transfer Services`,
     description: `${companyInfo.name} provides professional shipping and cargo transfer services. ${companyInfo.experience} years of safe driving experience.`,
-    images: [`${siteUrl}/IMG_4255.jpeg`],
+    images: [`${siteUrl}/main-hero-image.jpeg`],
   },
   robots: {
     index: true,

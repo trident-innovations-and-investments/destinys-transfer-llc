@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     url: `${siteUrl}/contact`,
     images: [
       {
-        url: `${siteUrl}/IMG_4255.jpeg`,
+        url: `${siteUrl}/main-hero-image.jpeg`,
         width: 1200,
         height: 630,
         alt: 'Contact Shipping Services',
