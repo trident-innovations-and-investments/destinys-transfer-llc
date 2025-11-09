@@ -1,6 +1,9 @@
 import { MetadataRoute } from 'next';
 import { companyInfo } from '@/data/company';
 
+// Ensures the route is statically generated for export builds
+export const dynamic = 'force-static';
+
 /**
  * Sitemap generation for SEO
  * Automatically generates sitemap.xml with all pages

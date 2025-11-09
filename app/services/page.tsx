@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     url: `${siteUrl}/services`,
     images: [
       {
-        url: `${siteUrl}/IMG_4255.jpeg`,
+        url: `${siteUrl}/shipping-image.jpeg`,
         width: 1200,
         height: 630,
         alt: 'Shipping Services',

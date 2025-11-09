@@ -15,7 +15,7 @@ export default function StructuredData() {
     '@type': 'LocalBusiness',
     '@id': `${siteUrl}#organization`,
     name: companyInfo.name,
-    image: `${siteUrl}/IMG_4255.jpeg`,
+    image: `${siteUrl}/main-hero-image.jpeg`,
     description: `${companyInfo.name} provides professional shipping and cargo transfer services including truckload (TL) and less than truckload (LTL). ${companyInfo.experience} years of safe driving experience.`,
     url: siteUrl,
     telephone: companyInfo.phone,
@@ -77,7 +77,7 @@ export default function StructuredData() {
     name: companyInfo.name,
     legalName: companyInfo.name,
     url: siteUrl,
-    logo: `${siteUrl}/IMG_4255.jpeg`,
+    logo: `${siteUrl}/main-hero-image.jpeg`,
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: companyInfo.phone,
