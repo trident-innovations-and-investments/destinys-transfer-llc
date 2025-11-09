@@ -1,5 +1,5 @@
 /**
- * Company information for Destiny's Transfer LLC
+ * Company information for Destiny's Tranfer LLC
  */
 
 export interface CompanyInfo {
@@ -24,7 +24,7 @@ export interface CompanyInfo {
  * Main company information
  */
 export const companyInfo: CompanyInfo = {
-  name: "Destiny's Transfer LLC",
+  name: "Destiny's Tranfer LLC",
   owner: 'Martin Anthony Herrera',
   address: {
     street: '2574 S Conway Rd Apt 920',

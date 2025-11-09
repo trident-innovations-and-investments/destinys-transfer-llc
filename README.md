@@ -1,6 +1,6 @@
-# Destiny's Transfer LLC - Website
+# Destiny's Tranfer LLC - Website
 
-A professional static website for Destiny's Transfer LLC, a trucking and logistics company specializing in Truckload (TL) and Less Than Truckload (LTL) delivery services.
+A professional static website for Destiny's Tranfer LLC, a trucking and logistics company specializing in Truckload (TL) and Less Than Truckload (LTL) delivery services.
 
 ## Overview
 
@@ -100,5 +100,5 @@ This static site can be deployed to:
 
 ## License
 
-Private project for Destiny's Transfer LLC
+Private project for Destiny's Tranfer LLC
 
