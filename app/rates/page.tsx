@@ -4,7 +4,6 @@ import type { Metadata } from 'next';
 import { tlRates, ltlRates, serviceRates, rateTerms } from '@/data/rates';
 import TLRateTable from '@/components/TLRateTable';
 import LTLRateTable from '@/components/LTLRateTable';
-import CoverageMap from '@/components/CoverageMap';
 import { formatCurrency } from '@/lib/utils';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://destinystransfer.com';
@@ -208,15 +207,6 @@ export default function Rates() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Coverage Map */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="flex justify-center mb-12">
-          <div className="w-full max-w-3xl">
-            <CoverageMap />
           </div>
         </div>
       </section>
