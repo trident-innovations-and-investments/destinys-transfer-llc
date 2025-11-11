@@ -27,7 +27,7 @@ export const companyInfo: CompanyInfo = {
   name: "Destiny's Tranfer LLC",
   owner: 'Martin Anthony Herrera',
   address: {
-    street: '2574 S Conway Rd Apt 920',
+    street: '',
     city: 'Orlando',
     state: 'Florida',
     zip: '32812',
