@@ -4,6 +4,9 @@ import type { Metadata } from 'next';
 import { companyInfo, serviceDescriptions } from '@/data/company';
 import ServiceCard from '@/components/ServiceCard';
 import ContactForm from '@/components/ContactForm';
+import FAQSection from '@/components/FAQSection';
+import { homeFAQs } from '@/data/faqs';
+import { generateFAQSchema, generateBreadcrumbSchema } from '@/lib/schema';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://destinystransfer.com';
 
@@ -12,20 +15,25 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://destinystransfer.co
  * Optimized for local search and entity-first SEO
  */
 export const metadata: Metadata = {
-  title: 'Professional Shipping & Transfer Services in Orlando, FL',
-  description: `Reliable LTL & TL shipping services across Florida. ${companyInfo.experience} years of safe driving experience. Competitive rates, on-time delivery, and exceptional service. Licensed and insured. Serving Orlando, Tampa, Miami, Jacksonville, and more.`,
+  title: 'LTL Shipping Orlando | Less Than Truckload Trucking Services Florida',
+  description: `#1 LTL shipping company from Orlando, FL. ${companyInfo.experience} years experience offering less than truckload and full truckload trucking services. 48-ft trailer with liftgate, 22 pallet capacity. Licensed LTL carrier serving Orlando, Tampa, Miami, Jacksonville. Competitive rates, on-time delivery. Get your free LTL quote today!`,
   keywords: [
-    'shipping services Orlando',
-    'freight services Florida',
     'LTL shipping Orlando',
-    'TL shipping Florida',
-    'trucking services Orlando',
-    'cargo transfer Florida',
-    'commercial shipping Orlando',
-    'logistics services Florida',
+    'less than truckload Orlando',
+    'LTL trucking Orlando FL',
+    'LTL carrier Orlando',
+    'LTL freight Orlando',
+    'Orlando LTL services',
+    'TL shipping Orlando',
+    'trucking services Orlando Florida',
+    'freight shipping Orlando',
+    'Orlando to Tampa LTL',
+    'Orlando to Miami trucking',
+    'pallet shipping Orlando',
+    'liftgate service Orlando',
   ],
   openGraph: {
-    title: 'Professional Shipping & Transfer Services in Orlando, FL',
+    title: 'Professional Shipping & Transfer Services from Orlando, FL',
     description: `Reliable LTL & TL shipping services across Florida. ${companyInfo.experience} years of safe driving experience. Competitive rates and on-time delivery.`,
     url: siteUrl,
     images: [
@@ -73,7 +81,7 @@ export default function Home() {
                 </span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Professional freight solutions across major routes. Competitive rates, on-time delivery, and exceptional service for all your shipping needs.
+                Professional <Link href="/services" className="text-blue-600 hover:text-blue-800 font-medium underline decoration-blue-600/30">LTL and TL trucking services</Link> in Orlando, Florida. Competitive <Link href="/rates" className="text-blue-600 hover:text-blue-800 font-medium underline decoration-blue-600/30">shipping rates</Link>, on-time delivery, and exceptional service for all your freight needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
@@ -132,9 +140,12 @@ export default function Home() {
       {/* Services Section */}
       <section id="services" className="bg-gray-50 border-y border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-12 text-center">
-            Our Services
+          <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-4 text-center">
+            Our LTL and TL Trucking Services
           </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Comprehensive <Link href="/services" className="text-blue-600 hover:text-blue-800 font-medium">less than truckload (LTL) and full truckload shipping</Link> throughout Florida. <Link href="/rates" className="text-blue-600 hover:text-blue-800 font-medium">View our competitive rates</Link> or <Link href="/contact" className="text-blue-600 hover:text-blue-800 font-medium">request a custom quote</Link>.
+          </p>
           <div className="grid md:grid-cols-2 gap-8">
             <ServiceCard
               title={serviceDescriptions.ltl.title}
@@ -153,10 +164,10 @@ export default function Home() {
       {/* Locations Section */}
       <section id="locations" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-4 text-center">
-          Service Locations
+          LTL Shipping Coverage Across Florida
         </h2>
         <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
-          We provide comprehensive coverage across major shipping corridors and regional routes from Orlando, FL
+          Our <Link href="/services" className="text-blue-600 hover:text-blue-800 font-medium">LTL and TL trucking services</Link> cover all major Florida cities from our Orlando hub. See detailed <Link href="/rates" className="text-blue-600 hover:text-blue-800 font-medium">shipping rates by destination</Link>.
         </p>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           <div className="border border-gray-200 rounded-lg p-6 hover:border-gray-300 transition-colors">
@@ -379,6 +390,29 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <section className="bg-gray-50 border-y border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <FAQSection faqs={homeFAQs} />
+        </div>
+      </section>
+
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(homeFAQs)) }}
+      />
+      
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ 
+          __html: JSON.stringify(generateBreadcrumbSchema([
+            { name: 'Home', url: siteUrl }
+          ])) 
+        }}
+      />
 
       {/* Contact Section with Premium Gradient */}
       <section id="contact" className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white">

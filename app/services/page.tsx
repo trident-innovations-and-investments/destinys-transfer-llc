@@ -3,6 +3,9 @@ import Image from 'next/image';
 import type { Metadata } from 'next';
 import { companyInfo, serviceDescriptions } from '@/data/company';
 import ServiceCard from '@/components/ServiceCard';
+import FAQSection from '@/components/FAQSection';
+import { servicesFAQs } from '@/data/faqs';
+import { generateFAQSchema, generateBreadcrumbSchema } from '@/lib/schema';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://destinystransfer.com';
 
@@ -11,17 +14,21 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://destinystransfer.co
  * Optimized for service-related searches
  */
 export const metadata: Metadata = {
-  title: 'Shipping & Transfer Services - LTL, TL, Short Haul & Hot Shot',
-  description: `Comprehensive shipping and cargo transfer services including Truckload (TL), Less Than Truckload (LTL), Short Haul, and Hot Shot services. Professional equipment with liftgate and inside delivery options. Serving Florida with ${companyInfo.experience} years of experience.`,
+  title: 'LTL & TL Trucking Services Orlando FL | Less Than Truckload Shipping',
+  description: `Professional LTL (Less Than Truckload) and TL trucking services from Orlando, Florida. ${companyInfo.experience} years experience serving Orlando, Tampa, Miami, Jacksonville. 48-foot trailer with liftgate, 22 pallet capacity. Licensed carrier offering competitive LTL shipping rates from Orlando. Get a quote today.`,
   keywords: [
-    'Truckload shipping services',
-    'LTL shipping services',
-    'short haul shipping',
-    'hot shot shipping',
-    'liftgate service',
-    'inside delivery service',
-    'cargo transfer services',
-    'freight services Florida',
+    'LTL shipping Orlando',
+    'LTL trucking Orlando',
+    'less than truckload Orlando',
+    'TL shipping Orlando',
+    'truckload shipping Orlando',
+    'trucking services Orlando Florida',
+    'freight services Orlando',
+    'LTL carrier Orlando',
+    'Orlando to Tampa LTL',
+    'Orlando to Miami LTL',
+    'liftgate service Orlando',
+    'pallet shipping Orlando',
   ],
   openGraph: {
     title: 'Shipping & Transfer Services - LTL, TL, Short Haul & Hot Shot',
@@ -58,11 +65,13 @@ export default function Services() {
         <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
           <div>
             <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900 mb-6">
-              Shipping & Transfer Services
+              LTL & TL Trucking Services from Orlando, FL
             </h1>
+            <p className="text-lg text-gray-600 mb-4">
+              {companyInfo.name} offers comprehensive <strong>LTL (Less Than Truckload)</strong> and <strong>TL (Truckload) shipping services</strong> tailored to your business needs throughout Florida.
+            </p>
             <p className="text-lg text-gray-600">
-              {companyInfo.name} offers comprehensive shipping and cargo transfer
-              services tailored to your business needs.
+              Check our <Link href="/rates" className="text-blue-600 hover:text-blue-800 font-semibold underline decoration-blue-600/30">competitive shipping rates</Link> or <Link href="/contact" className="text-blue-600 hover:text-blue-800 font-semibold underline decoration-blue-600/30">request a free quote</Link> today.
             </p>
           </div>
           <div className="rounded-lg overflow-hidden shadow-lg">
@@ -228,6 +237,93 @@ export default function Services() {
           </div>
         </div>
       </section>
+
+      {/* Why Choose LTL Section - SEO Content */}
+      <section className="bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-8 text-center">
+            Why Choose LTL Shipping from Orlando?
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <div className="border border-gray-200 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Cost-Effective LTL Solutions</h3>
+              <p className="text-gray-700 mb-4">
+                LTL (Less Than Truckload) shipping from Orlando offers significant cost savings when your freight doesn&apos;t require a full truck. Our 48-foot trailer with 22 pallet capacity means you only pay for the space you use, making it ideal for businesses shipping 1-10 pallets throughout Florida.
+              </p>
+              <p className="text-gray-700">
+                With competitive rates to Tampa ($700), Miami ($1,250), and Jacksonville ($1,000), our LTL services provide the perfect balance of affordability and reliability for regular Florida shipments.
+              </p>
+            </div>
+            <div className="border border-gray-200 rounded-lg p-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Orlando&apos;s Trusted LTL Carrier</h3>
+              <p className="text-gray-700 mb-4">
+                Located in Orlando, we understand Florida&apos;s shipping lanes and offer optimized routes to major cities. Our {companyInfo.experience} years of experience means reliable transit times, professional handling, and personalized service that large national carriers can&apos;t match.
+              </p>
+              <p className="text-gray-700">
+                Our hydraulic liftgate service ensures smooth loading and unloading at any location, even without a dock. Perfect for retail stores, warehouses, and businesses throughout Central Florida.
+              </p>
+            </div>
+          </div>
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
+            <h3 className="text-xl font-semibold text-gray-900 mb-4">LTL Service Coverage from Orlando</h3>
+            <p className="text-gray-700 mb-4">
+              We provide comprehensive LTL trucking services connecting Orlando to all major Florida cities and surrounding areas.
+            </p>
+            <div className="grid sm:grid-cols-3 gap-4">
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2">North Florida</h4>
+                <ul className="text-gray-700 space-y-1 text-sm">
+                  <li>• Jacksonville LTL Service</li>
+                  <li>• Daytona Beach</li>
+                  <li>• Ocala</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2">West Coast</h4>
+                <ul className="text-gray-700 space-y-1 text-sm">
+                  <li>• Tampa LTL Service</li>
+                  <li>• Clearwater</li>
+                  <li>• Sarasota</li>
+                  <li>• Fort Myers</li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-2">South Florida</h4>
+                <ul className="text-gray-700 space-y-1 text-sm">
+                  <li>• Miami LTL Service</li>
+                  <li>• Fort Pierce</li>
+                  <li>• Port St. Lucie</li>
+                  <li>• Melbourne</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section with Schema */}
+      <section className="bg-gray-50 border-y border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <FAQSection faqs={servicesFAQs} />
+        </div>
+      </section>
+      
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(servicesFAQs)) }}
+      />
+      
+      {/* Breadcrumb Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ 
+          __html: JSON.stringify(generateBreadcrumbSchema([
+            { name: 'Home', url: siteUrl },
+            { name: 'Services', url: `${siteUrl}/services` }
+          ])) 
+        }}
+      />
 
       {/* Call to Action with Premium Design */}
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-gray-900 text-white">

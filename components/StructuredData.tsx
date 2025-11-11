@@ -15,8 +15,9 @@ export default function StructuredData() {
     '@type': 'LocalBusiness',
     '@id': `${siteUrl}#organization`,
     name: companyInfo.name,
-    image: `${siteUrl}/main-hero-image.jpeg`,
-    description: `${companyInfo.name} provides professional shipping and cargo transfer services including truckload (TL) and less than truckload (LTL). ${companyInfo.experience} years of safe driving experience.`,
+    image: `${siteUrl}/DT_logo.png`,
+    logo: `${siteUrl}/DT_logo.png`,
+    description: `${companyInfo.name} provides professional LTL and TL trucking services in Orlando, Florida. Specializing in less than truckload and truckload shipping across Florida with ${companyInfo.experience} years of safe driving experience. Licensed and insured carrier serving Orlando, Tampa, Miami, Jacksonville, and all major Florida cities.`,
     url: siteUrl,
     telephone: companyInfo.phone,
     email: companyInfo.email,
@@ -33,10 +34,28 @@ export default function StructuredData() {
       latitude: '28.5383',
       longitude: '-81.3792',
     },
-    areaServed: {
-      '@type': 'State',
-      name: 'Florida',
-    },
+    areaServed: [
+      {
+        '@type': 'State',
+        name: 'Florida',
+      },
+      {
+        '@type': 'City',
+        name: 'Orlando',
+      },
+      {
+        '@type': 'City',
+        name: 'Tampa',
+      },
+      {
+        '@type': 'City',
+        name: 'Miami',
+      },
+      {
+        '@type': 'City',
+        name: 'Jacksonville',
+      },
+    ],
     priceRange: '$$',
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
@@ -44,14 +63,28 @@ export default function StructuredData() {
       opens: '00:00',
       closes: '23:59',
     },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '1',
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Trucking Services',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'LTL Shipping Services Orlando',
+            description: 'Less than truckload shipping services across Florida',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'TL Shipping Services Orlando',
+            description: 'Full truckload shipping services across Florida',
+          },
+        },
+      ],
     },
-    sameAs: [
-      // Add social media profiles when available
-    ],
   };
 
   // Service schemas for each service type
@@ -77,7 +110,9 @@ export default function StructuredData() {
     name: companyInfo.name,
     legalName: companyInfo.name,
     url: siteUrl,
-    logo: `${siteUrl}/main-hero-image.jpeg`,
+    logo: `${siteUrl}/DT_logo.png`,
+    foundingDate: String(new Date().getFullYear() - companyInfo.experience),
+    description: `Professional LTL and TL trucking company serving Orlando and all of Florida with ${companyInfo.experience} years of experience`,
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: companyInfo.phone,
