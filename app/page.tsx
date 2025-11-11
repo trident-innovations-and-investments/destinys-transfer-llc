@@ -80,9 +80,9 @@ export default function Home() {
                 {companyInfo.experience}+ Years of Excellence
               </div>
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6">
-                LTL Shipping{' '}
+                Reliable LTL & TL{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">
-                  To & From Orlando
+                  Shipping Services
                 </span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
