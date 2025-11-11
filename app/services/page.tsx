@@ -29,16 +29,17 @@ export const metadata: Metadata = {
     url: `${siteUrl}/services`,
     images: [
       {
-        url: `${siteUrl}/shipping-image.jpeg`,
-        width: 1200,
-        height: 630,
-        alt: 'Shipping Services',
+        url: `${siteUrl}/DT_logo.png`,
+        width: 768,
+        height: 768,
+        alt: `${companyInfo.name} brand logo`,
       },
     ],
   },
   twitter: {
     title: 'Shipping & Transfer Services - LTL, TL, Short Haul & Hot Shot',
     description: `Comprehensive shipping and cargo transfer services. Professional equipment with liftgate and inside delivery options.`,
+    images: [`${siteUrl}/DT_logo.png`],
   },
   alternates: {
     canonical: `${siteUrl}/services`,

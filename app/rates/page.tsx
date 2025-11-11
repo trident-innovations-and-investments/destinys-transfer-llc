@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { tlRates, ltlRates, serviceRates, rateTerms } from '@/data/rates';
+import { companyInfo } from '@/data/company';
 import TLRateTable from '@/components/TLRateTable';
 import LTLRateTable from '@/components/LTLRateTable';
 import { formatCurrency } from '@/lib/utils';
@@ -31,16 +32,17 @@ export const metadata: Metadata = {
     url: `${siteUrl}/rates`,
     images: [
       {
-        url: `${siteUrl}/rates-image.jpeg`,
-        width: 1200,
-        height: 630,
-        alt: 'Shipping Rates',
+        url: `${siteUrl}/DT_logo.png`,
+        width: 768,
+        height: 768,
+        alt: `${companyInfo.name} brand logo`,
       },
     ],
   },
   twitter: {
     title: 'Shipping Rates & Locations - Competitive Pricing in Florida',
     description: `Competitive shipping and transfer rates. Transparent pricing for TL, LTL, Short Haul, and Hot Shot services.`,
+    images: [`${siteUrl}/DT_logo.png`],
   },
   alternates: {
     canonical: `${siteUrl}/rates`,

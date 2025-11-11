@@ -30,16 +30,17 @@ export const metadata: Metadata = {
     url: siteUrl,
     images: [
       {
-        url: `${siteUrl}/main-hero-image.jpeg`,
-        width: 1200,
-        height: 630,
-        alt: 'Professional Shipping Services',
+        url: `${siteUrl}/DT_logo.png`,
+        width: 768,
+        height: 768,
+        alt: `${companyInfo.name} brand logo`,
       },
     ],
   },
   twitter: {
     title: 'Professional Shipping & Transfer Services in Orlando, FL',
     description: `Reliable LTL & TL shipping services across Florida. ${companyInfo.experience} years of safe driving experience.`,
+    images: [`${siteUrl}/DT_logo.png`],
   },
   alternates: {
     canonical: siteUrl,
