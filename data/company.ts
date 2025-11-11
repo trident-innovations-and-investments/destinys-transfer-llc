@@ -35,7 +35,9 @@ export const companyInfo: CompanyInfo = {
   phone: '407-978-5088',
   email: 'martinanthony2989@gmail.com',
   experience: 30,
-  equipment: ['48-foot trailer with liftgate'],
+  equipment: [
+    "48-foot trailer with hydraulic liftgate and capacity for 22 standard 40x48 inch pallets",
+  ],
   services: ['Truckload (TL)', 'Less Than Truckload (LTL)'],
   licensed: true,
   insured: true,

@@ -50,7 +50,7 @@ export const ltlRates: LTLRate[] = [
   { destination: 'Daytona BCH', ltlRate: 700 },
   { destination: 'Clearwater', ltlRate: 800 },
   { destination: 'Melbourne', ltlRate: 700 },
-  { destination: 'Ft Pierce', ltlRate: 700 },
+  { destination: 'Ft Pierce', ltlRate: 750 },
   { destination: 'Port St. Lucie', ltlRate: 800 },
 ];
 

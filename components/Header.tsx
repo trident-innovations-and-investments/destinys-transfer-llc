@@ -3,48 +3,23 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { companyInfo } from '@/data/company';
+import BrandLogo from '@/components/BrandLogo';
 
 /**
  * Navigation header component with company branding
  * Includes mobile-responsive hamburger menu
- * Styled to match template.html design
+ * Styled to match template.html design and shows the logo asset
  */
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  /**
-   * Safely extracts initials from company name
-   * Handles edge cases like empty strings or single words
-   */
-  const getInitials = (): string => {
-    if (!companyInfo.name || companyInfo.name.trim().length === 0) {
-      return 'DT';
-    }
-    const words = companyInfo.name.trim().split(/\s+/).filter(word => word.length > 0);
-    if (words.length === 0) {
-      return 'DT';
-    }
-    if (words.length === 1) {
-      return words[0].substring(0, 2).toUpperCase();
-    }
-    return words
-      .map((word) => word[0])
-      .join('')
-      .toUpperCase()
-      .slice(0, 2);
-  };
-
-  const initials = getInitials();
 
   return (
     <header className="border-b border-gray-200">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link href="/" className="flex items-center">
-            <div className="text-2xl font-semibold tracking-tight text-gray-900">
-              {initials}
-            </div>
-            <span className="ml-2 text-base font-medium text-gray-900">
+            <BrandLogo width={64} height={64} className="h-16 w-auto" priority />
+            <span className="ml-4 text-base font-medium text-gray-900">
               {companyInfo.name}
             </span>
           </Link>

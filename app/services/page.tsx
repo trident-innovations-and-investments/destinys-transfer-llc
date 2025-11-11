@@ -117,13 +117,13 @@ export default function Services() {
         <h2 className="text-3xl font-semibold tracking-tight text-gray-900 mb-12 text-center">
           Equipment & Capabilities
         </h2>
-        <div className="mb-12 rounded-lg overflow-hidden">
+        <div className="mb-12 rounded-lg overflow-hidden max-w-5xl mx-auto">
           <Image
             src="/shipping-image.jpeg"
             alt="Professional 48-foot trailer with liftgate showcasing our modern trucking equipment"
             width={1200}
             height={400}
-            className="w-full object-cover"
+            className="w-full h-64 md:h-72 object-cover"
           />
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">

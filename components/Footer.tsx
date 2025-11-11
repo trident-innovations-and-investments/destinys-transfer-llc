@@ -1,44 +1,19 @@
 import Link from 'next/link';
 import { companyInfo } from '@/data/company';
 import { formatPhone, formatAddress } from '@/lib/utils';
+import BrandLogo from '@/components/BrandLogo';
 
 /**
  * Footer component with contact information and licensing notice
- * Styled to match template.html design
+ * Styled to match template.html design and surfaces brand logo for consistency
  */
 export default function Footer() {
-  /**
-   * Safely extracts initials from company name
-   * Handles edge cases like empty strings or single words
-   */
-  const getInitials = (): string => {
-    if (!companyInfo.name || companyInfo.name.trim().length === 0) {
-      return 'DT';
-    }
-    const words = companyInfo.name.trim().split(/\s+/).filter(word => word.length > 0);
-    if (words.length === 0) {
-      return 'DT';
-    }
-    if (words.length === 1) {
-      return words[0].substring(0, 2).toUpperCase();
-    }
-    return words
-      .map((word) => word[0])
-      .join('')
-      .toUpperCase()
-      .slice(0, 2);
-  };
-
-  const initials = getInitials();
-
   return (
     <footer className="border-t border-gray-200 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
-            <div className="text-xl font-semibold tracking-tight text-gray-900 mb-4">
-              {initials}
-            </div>
+            <BrandLogo width={128} height={128} className="h-32 w-auto mb-6" />
             <p className="text-sm text-gray-600 leading-relaxed">
               Professional freight and logistics solutions you can trust.
             </p>
