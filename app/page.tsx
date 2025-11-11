@@ -19,6 +19,8 @@ export const metadata: Metadata = {
   description: `#1 LTL shipping company from Orlando, FL. ${companyInfo.experience} years experience offering less than truckload and full truckload trucking services. 48-ft trailer with liftgate, 22 pallet capacity. Licensed LTL carrier serving Orlando, Tampa, Miami, Jacksonville. Competitive rates, on-time delivery. Get your free LTL quote today!`,
   keywords: [
     'LTL shipping Orlando',
+    'LTL shipping to Orlando',
+    'LTL shipping from Orlando',
     'less than truckload Orlando',
     'LTL trucking Orlando FL',
     'LTL carrier Orlando',
@@ -28,7 +30,10 @@ export const metadata: Metadata = {
     'trucking services Orlando Florida',
     'freight shipping Orlando',
     'Orlando to Tampa LTL',
-    'Orlando to Miami trucking',
+    'Tampa to Orlando LTL',
+    'Orlando to Miami LTL',
+    'Miami to Orlando LTL',
+    'Jacksonville to Orlando LTL',
     'pallet shipping Orlando',
     'liftgate service Orlando',
   ],
@@ -75,13 +80,13 @@ export default function Home() {
                 {companyInfo.experience}+ Years of Excellence
               </div>
               <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6">
-                Reliable LTL & TL{' '}
+                LTL Shipping{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">
-                  Shipping Services
+                  To & From Orlando
                 </span>
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Professional <Link href="/services" className="text-blue-600 hover:text-blue-800 font-medium underline decoration-blue-600/30">LTL and TL trucking services</Link> in Orlando, Florida. Competitive <Link href="/rates" className="text-blue-600 hover:text-blue-800 font-medium underline decoration-blue-600/30">shipping rates</Link>, on-time delivery, and exceptional service for all your freight needs.
+                Professional <Link href="/services" className="text-blue-600 hover:text-blue-800 font-medium underline decoration-blue-600/30">LTL and TL trucking services</Link> to Orlando and from Orlando, Florida. Competitive <Link href="/rates" className="text-blue-600 hover:text-blue-800 font-medium underline decoration-blue-600/30">shipping rates</Link> for all Florida routes, reliable on-time delivery, and exceptional service for all your freight needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link

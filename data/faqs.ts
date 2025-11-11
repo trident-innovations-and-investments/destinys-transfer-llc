@@ -10,8 +10,8 @@ export const servicesFAQs: FAQItem[] = [
     answer: 'LTL shipping is a cost-effective freight transportation method where multiple shippers share space on a single truck. This is ideal when your shipment doesn\'t require a full truckload, typically for freight between 150-15,000 pounds. LTL carriers consolidate shipments from multiple customers traveling along similar routes, making it more affordable than booking an entire truck.',
   },
   {
-    question: 'What areas do you serve for LTL and TL shipping in Florida?',
-    answer: 'We provide comprehensive LTL and TL trucking services throughout Florida, with primary coverage from our Orlando hub to major cities including Tampa, Miami, Jacksonville, Fort Myers, Sarasota, Clearwater, Melbourne, Daytona Beach, and all surrounding areas. We specialize in routes within a 100-mile radius of Orlando and offer competitive rates for statewide shipments.',
+    question: 'What areas do you serve for LTL and TL shipping to and from Orlando?',
+    answer: 'We provide comprehensive LTL and TL trucking services to and from Orlando throughout Florida. Whether you need LTL shipping from Orlando to Tampa, Miami, Jacksonville, or shipping to Orlando from any Florida city, we have you covered. Our services include bidirectional routes between Orlando and major cities including Tampa, Miami, Jacksonville, Fort Myers, Sarasota, Clearwater, Melbourne, Daytona Beach, and all surrounding areas. We specialize in routes within a 100-mile radius of Orlando and offer competitive rates for statewide shipments in both directions.',
   },
   {
     question: 'How much does LTL shipping cost from Orlando?',
@@ -32,6 +32,14 @@ export const servicesFAQs: FAQItem[] = [
   {
     question: 'Are you licensed and insured for commercial freight?',
     answer: 'Yes, Destiny\'s Tranfer LLC is fully licensed and insured for commercial freight transportation in Florida. We maintain all required DOT licenses and comprehensive cargo insurance. Documentation is available upon request. With 30 years of safe driving experience, we prioritize the secure handling and timely delivery of your freight.',
+  },
+  {
+    question: 'What is your delivery time for LTL shipments from Orlando?',
+    answer: 'Delivery times for LTL shipments from Orlando typically range from same-day to 2 business days depending on the destination within Florida. Jacksonville, Tampa, and nearby cities often receive next-day service. We provide estimated delivery windows with every quote and offer expedited Hot Shot services for time-sensitive shipments.',
+  },
+  {
+    question: 'Do you provide LTL shipping to Orlando from other Florida cities?',
+    answer: 'Yes! We provide reliable LTL shipping to Orlando from all major Florida cities including Tampa, Miami, Jacksonville, Fort Myers, and more. Our Orlando hub is strategically positioned for efficient freight consolidation from multiple Florida origins. Whether you\'re shipping to Orlando from Tampa (1 pallet or 20), we offer the same professional service, competitive rates, and reliable delivery times. Contact us for LTL shipping to Orlando from anywhere in Florida.',
   },
 ];
 
@@ -62,12 +70,12 @@ export const ratesFAQs: FAQItem[] = [
  */
 export const homeFAQs: FAQItem[] = [
   {
-    question: 'Why choose Destiny\'s Tranfer LLC for LTL shipping from Orlando?',
-    answer: 'With 30 years of safe driving experience, we combine reliability with competitive pricing. Our modern 48-foot trailer with liftgate can handle 22 standard pallets, and we offer flexible scheduling with multiple service options. We\'re a locally-owned Orlando business that understands Florida shipping routes and provides personalized service you won\'t get from national carriers.',
+    question: 'Why choose Destiny\'s Tranfer LLC for LTL shipping to and from Orlando?',
+    answer: 'With 30 years of safe driving experience, we combine reliability with competitive pricing for all your LTL shipping needs to Orlando and from Orlando. Our modern 48-foot trailer with liftgate can handle 22 standard pallets, and we offer flexible scheduling with multiple service options. We\'re a locally-owned Orlando business that understands Florida shipping routes and provides personalized service you won\'t get from national carriers. Whether you need shipping from Orlando to Tampa or shipping to Orlando from Miami, we deliver professional LTL service.',
   },
   {
     question: 'What types of freight can you transport?',
-    answer: 'We transport a wide variety of commercial freight including palletized goods, crated items, and general cargo. Our 48-foot trailer with liftgate is suitable for most standard freight types.',
+    answer: 'We transport a wide variety of commercial freight including palletized goods, crated items, and general cargo. Our 48-foot trailer with liftgate is suitable for most standard freight types. If you have specialized freight requirements such as temperature control or hazardous materials, please contact us to discuss your specific needs.',
   },
   {
     question: 'How do I schedule a pickup?',

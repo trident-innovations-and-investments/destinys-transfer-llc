@@ -15,9 +15,11 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://destinystransfer.co
  */
 export const metadata: Metadata = {
   title: 'LTL & TL Trucking Services Orlando FL | Less Than Truckload Shipping',
-  description: `Professional LTL (Less Than Truckload) and TL trucking services from Orlando, Florida. ${companyInfo.experience} years experience serving Orlando, Tampa, Miami, Jacksonville. 48-foot trailer with liftgate, 22 pallet capacity. Licensed carrier offering competitive LTL shipping rates from Orlando. Get a quote today.`,
+  description: `Professional LTL (Less Than Truckload) and TL trucking services in Orlando, Florida. ${companyInfo.experience} years experience serving Orlando, Tampa, Miami, Jacksonville. 48-foot trailer with liftgate, 22 pallet capacity. Licensed carrier offering competitive LTL shipping rates from Orlando. Get a quote today.`,
   keywords: [
     'LTL shipping Orlando',
+    'LTL shipping to Orlando',
+    'LTL shipping from Orlando',
     'LTL trucking Orlando',
     'less than truckload Orlando',
     'TL shipping Orlando',
@@ -26,7 +28,10 @@ export const metadata: Metadata = {
     'freight services Orlando',
     'LTL carrier Orlando',
     'Orlando to Tampa LTL',
+    'Tampa to Orlando LTL',
     'Orlando to Miami LTL',
+    'Miami to Orlando LTL',
+    'Jacksonville to Orlando LTL',
     'liftgate service Orlando',
     'pallet shipping Orlando',
   ],
@@ -65,7 +70,7 @@ export default function Services() {
         <div className="grid md:grid-cols-2 gap-12 items-center mb-12">
           <div>
             <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900 mb-6">
-              LTL & TL Trucking Services from Orlando, FL
+              LTL & TL Trucking Services in Orlando
             </h1>
             <p className="text-lg text-gray-600 mb-4">
               {companyInfo.name} offers comprehensive <strong>LTL (Less Than Truckload)</strong> and <strong>TL (Truckload) shipping services</strong> tailored to your business needs throughout Florida.
@@ -267,7 +272,7 @@ export default function Services() {
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
             <h3 className="text-xl font-semibold text-gray-900 mb-4">LTL Service Coverage from Orlando</h3>
             <p className="text-gray-700 mb-4">
-              We provide comprehensive LTL trucking services connecting Orlando to all major Florida cities and surrounding areas.
+              We provide comprehensive LTL trucking services connecting Orlando to all major Florida cities and surrounding areas. Our primary service radius covers 100 miles from Orlando, with extended coverage throughout the state.
             </p>
             <div className="grid sm:grid-cols-3 gap-4">
               <div>

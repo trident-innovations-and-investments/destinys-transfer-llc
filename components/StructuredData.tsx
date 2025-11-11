@@ -17,7 +17,7 @@ export default function StructuredData() {
     name: companyInfo.name,
     image: `${siteUrl}/DT_logo.png`,
     logo: `${siteUrl}/DT_logo.png`,
-    description: `${companyInfo.name} provides professional LTL and TL trucking services in Orlando, Florida. Specializing in less than truckload and truckload shipping across Florida with ${companyInfo.experience} years of safe driving experience. Licensed and insured carrier serving Orlando, Tampa, Miami, Jacksonville, and all major Florida cities.`,
+    description: `${companyInfo.name} provides professional LTL and TL trucking services to and from Orlando, Florida. Specializing in less than truckload and truckload shipping to Orlando and from Orlando across Florida with ${companyInfo.experience} years of safe driving experience. Licensed and insured carrier serving bidirectional routes between Orlando, Tampa, Miami, Jacksonville, and all major Florida cities.`,
     url: siteUrl,
     telephone: companyInfo.phone,
     email: companyInfo.email,
