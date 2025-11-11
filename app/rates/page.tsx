@@ -2,10 +2,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import { tlRates, ltlRates, serviceRates, rateTerms } from '@/data/rates';
-import { companyInfo } from '@/data/company';
 import TLRateTable from '@/components/TLRateTable';
 import LTLRateTable from '@/components/LTLRateTable';
 import { formatCurrency } from '@/lib/utils';
+import { companyInfo } from '@/data/company';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://destinystransfer.com';
 
@@ -153,11 +153,18 @@ export default function Rates() {
                           )}
                         </div>
                         <div className="text-right">
-                          <div className="font-semibold text-gray-900">
-                            {typeof service.rate === 'number'
-                              ? formatCurrency(service.rate)
-                              : service.rate}
-                          </div>
+                          {typeof service.rate === 'number' ? (
+                            <div className="font-semibold text-gray-900">
+                              {formatCurrency(service.rate)}
+                            </div>
+                          ) : (
+                            <a
+                              href={`tel:${companyInfo.phone}`}
+                              className="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-md hover:bg-blue-700 transition-colors shadow-sm"
+                            >
+                              Call for Quote
+                            </a>
+                          )}
                         </div>
                       </div>
                     ))
