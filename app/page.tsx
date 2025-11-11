@@ -520,7 +520,6 @@ export default function Home() {
                   <div>
                     <div className="font-semibold text-white">Office</div>
                     <div className="text-gray-300 text-sm">
-                      {companyInfo.address.street}<br />
                       {companyInfo.address.city}, {companyInfo.address.state} {companyInfo.address.zip}
                     </div>
                   </div>

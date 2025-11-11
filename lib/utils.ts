@@ -39,7 +39,7 @@ export function formatCurrency(amount: number | string): string {
 /**
  * Formats full address string
  * @param address - Address object
- * @returns Formatted address string
+ * @returns Formatted address string (city, state zip format if street is empty)
  */
 export function formatAddress(address: {
   street: string;
@@ -47,6 +47,9 @@ export function formatAddress(address: {
   state: string;
   zip: string;
 }): string {
-  return `${address.street}, ${address.city}, ${address.state} ${address.zip}`;
+  if (address.street) {
+    return `${address.street}, ${address.city}, ${address.state} ${address.zip}`;
+  }
+  return `${address.city}, ${address.state} ${address.zip}`;
 }
 
